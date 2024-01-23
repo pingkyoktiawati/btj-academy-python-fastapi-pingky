@@ -71,6 +71,37 @@ You can now access [localhost:8000/docs](http://localhost:8000/docs) to see the 
 (venv) alembic revision -m "<name_of_migration_file>"
 ```
 
+# List Endpoint - Note
+
+## /api/v1/notes
+
+Methods:
+
+1. **GET**: Retrieve a list of all notes.
+
+2. **POST**: Create a new note.
+   
+   Request Body:
+
+   - title (string, required): The title of the new note.
+   - content (string, required): The content of the new note.
+
+## /api/v1/notes/<note_id>
+
+Methods:
+
+1. **GET**: Retrieve details of a specific note.
+
+2. **PUT**: Update an existing note.
+
+   Request Body:
+
+   - new title (string, required): The title of the update note.
+   - new content (string, required): The content of the update note.
+
+3. **DELETE**: Delete a specific note.
+
+
 # API Documentation - Note
 
 ## Create Note
@@ -84,7 +115,7 @@ The values for these keys should represent the title and content of the new note
 - title (string, required): The title of the new note.
 - content (string, required): The content of the new note.
 
-### Example Request
+### Example Request using cURL
 
 ```shell
 curl --location 'http://localhost:8000/api/v1/notes' \
@@ -98,7 +129,7 @@ curl --location 'http://localhost:8000/api/v1/notes' \
 
 This API endpoint makes an HTTP GET request to retrieve a list of all notes from the API. The request does not require any payload in the request body.
 
-### Example Request
+### Example Request using cURL
 
 ```shell
 curl --location 'http://localhost:8000/api/v1/notes'
@@ -108,7 +139,7 @@ curl --location 'http://localhost:8000/api/v1/notes'
 
 This API endpoint makes an HTTP GET request to retrieve one notes from the API. The request does not require any payload in the request body.
 
-### Example Request
+### Example Request using cURL
 
 ```shell
 curl --location 'http://localhost:8000/api/v1/notes/1'
@@ -123,7 +154,7 @@ This API endpoint allows you to update an existing note by sending an HTTP PUT r
 - new title (string, required): The title of the update note.
 - new content (string, required): The content of the update note.
 
-### Example Request
+### Example Request using cURL
 
 ```shell
 curl --location 'http://localhost:8000/api/v1/notes/1' \
@@ -135,9 +166,9 @@ curl --location 'http://localhost:8000/api/v1/notes/1' \
 
 ## Delete Note
 
-This API endpoint allows you to delete user by sending an HTTP DELETE request to the specified URL.
+This API endpoint allows you to delete note by sending an HTTP DELETE request to the specified URL.
 
-### Example Request
+### Example Request using cURL
 
 ```shell
 curl --location 'http://localhost:8000/api/v1/notes/1'
